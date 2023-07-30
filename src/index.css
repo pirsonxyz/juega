@@ -4,7 +4,6 @@ html {
   color: white;
   font-family: "Raleway", sans-serif;
   font-weight: lighter;
-  overflow-x: hidden;
 }
 
 @-webkit-keyframes bounceInDown {
@@ -88,22 +87,36 @@ html {
   animation: bounceInDown 1.3s;
 }
 
-/* unvisited link */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #242424; 
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #404040;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #b7b7b7;
+  border-radius: 3px;
+}
+
 a:link {
   color: #242424;
 }
 
-/* visited link */
 a:visited {
   color: #242424;
 }
 
-/* mouse over link */
 a:hover {
   color: #00a25f;
 }
 
-/* selected link */
 a:active {
   color: #00a25f;
 }
@@ -221,7 +234,6 @@ a:active {
   height: 22px;
   width: 22px;
   background-position: center;
-
   background-size: 65%;
   background-repeat: no-repeat;
   background-position: center;
