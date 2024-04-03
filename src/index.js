@@ -985,7 +985,7 @@ class Board extends React.Component {
 
               <div className="wrapper">
                 <div className="player_box">
-                  <p className="medium_font">Blancas (You)</p>
+                  <p className="medium_font">Blancas (Tu)</p>
                   {this.state.pieces_collected_by_white}
                 </div>
                 <div className="player_box black_player_color">
