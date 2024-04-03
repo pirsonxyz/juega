@@ -87,7 +87,7 @@ class Board extends React.Component {
       this.state.turn === "b" &&
       !this.state.mated
     )
-      return "cannot reset";
+      return "no se puede reiniciar";
     this.setState({
       squares: initializeBoard(),
       source: -1,
@@ -197,13 +197,13 @@ class Board extends React.Component {
     var passant_true =
       player === "w"
         ? copy_squares[end].ascii === "p" &&
-          start >= 48 &&
-          start <= 55 &&
-          end - start === -16
+        start >= 48 &&
+        start <= 55 &&
+        end - start === -16
         : copy_squares[end].ascii === "P" &&
-          start >= 8 &&
-          start <= 15 &&
-          end - start === 16;
+        start >= 8 &&
+        start <= 15 &&
+        end - start === 16;
     let passant = passant_true ? end : 65;
 
     if (player === "w") {
@@ -643,7 +643,7 @@ class Board extends React.Component {
     return best_value;
   }
   execute_bot(depth, passed_in_squares) {
-    if (this.state.mated) return "bot cannot run";
+    if (this.state.mated) return "bot no puede jugar";
     const copy_squares = passed_in_squares.slice();
     let rand_start = 100;
     let rand_end = 100;
@@ -739,10 +739,10 @@ class Board extends React.Component {
     let copy_squares = this.state.squares.slice();
 
     if (this.state.history_num - 1 !== this.state.turn_num) {
-      return "currently viewing history";
+      return "Viendo historia";
     }
 
-    if (this.state.mated) return "game-over";
+    if (this.state.mated) return "juego-acabado";
 
     if (this.state.source === -1 && this.state.bot_running === 0) {
       if (copy_squares[i].player !== this.state.turn) return -1;
@@ -756,7 +756,7 @@ class Board extends React.Component {
         });
 
         copy_squares = clear_check_highlight(copy_squares, "w").slice();
-        copy_squares[i].highlight = 1; 
+        copy_squares[i].highlight = 1;
 
         for (let j = 0; j < 64; j++) {
           if (this.can_move_there(i, j, copy_squares))
@@ -781,14 +781,14 @@ class Board extends React.Component {
             copy_squares[j].possible = 1;
         }
         this.setState({
-          source: i, 
+          source: i,
           squares: copy_squares,
         });
       } else {
         if (!this.can_move_there(this.state.source, i, copy_squares)) {
           copy_squares[this.state.source].highlight = 0;
           copy_squares = clear_possible_highlight(copy_squares).slice();
-        
+
           if (
             i !== this.state.source &&
             this.in_check("w", copy_squares) === true
@@ -807,7 +807,7 @@ class Board extends React.Component {
             source: -1,
             squares: copy_squares,
           });
-          return "invalid move";
+          return "movimiento invalido";
         }
 
         this.execute_move("w", copy_squares, this.state.source, i);
@@ -980,16 +980,16 @@ class Board extends React.Component {
           <div className="left_screen bounceInDown">
             <div className="side_box">
               <div className="content title">
-                <p className="header_2_font">Match Information</p>
+                <p className="header_2_font">Informacion del Juego</p>
               </div>
 
               <div className="wrapper">
                 <div className="player_box">
-                  <p className="medium_font">White (You)</p>
+                  <p className="medium_font">Blancas (You)</p>
                   {this.state.pieces_collected_by_white}
                 </div>
                 <div className="player_box black_player_color">
-                  <p className="medium_font">Black (Bot)</p>
+                  <p className="medium_font">Negras (Bot)</p>
                   {this.state.pieces_collected_by_black}
                 </div>
               </div>
@@ -1020,7 +1020,7 @@ class Board extends React.Component {
                   <p className="button_font">&lt;</p>
                 </button>
                 <button className="reset_button" onClick={() => this.reset()}>
-                  <p className="button_font">Restart Game</p>
+                  <p className="button_font">Reiniciar Juego</p>
                 </button>
                 <button
                   className="reset_button history"
@@ -1039,14 +1039,14 @@ class Board extends React.Component {
               <div className="mate_wrapper">
                 <p className="small_font">
                   {this.in_check("w", this.state.squares) &&
-                  !this.checkmate("w", this.state.squares) === true
-                    ? "You are in check!"
+                    !this.checkmate("w", this.state.squares) === true
+                    ? "Estas en jaque!"
                     : ""}
                 </p>
                 <p className="small_font">
                   {this.in_check("b", this.state.squares) &&
-                  !this.checkmate("b", this.state.squares) === true
-                    ? "Black player is in check."
+                    !this.checkmate("b", this.state.squares) === true
+                    ? "Negras en jaque."
                     : ""}
                 </p>
                 <p className="small_font">
@@ -1056,7 +1056,7 @@ class Board extends React.Component {
                 </p>
                 <p className="small_font">
                   {this.checkmate("b", this.state.squares) === true
-                    ? "You won by checkmate!"
+                    ? "Ganaste por jaque mate!"
                     : ""}
                 </p>
                 <p className="small_font">
@@ -1068,7 +1068,7 @@ class Board extends React.Component {
                 <p className="small_font">
                   {(this.stalemate("b", this.state.squares) &&
                     this.state.turn === "b") === true
-                    ? "Black is in stalemate. Game over."
+                    ? "Rey ahogado. Fin del Juego."
                     : ""}
                 </p>
               </div>
@@ -1091,7 +1091,7 @@ class Board extends React.Component {
       this.state.turn === "b" &&
       !this.state.mated
     ) {
-      return "not allowed to view history";
+      return "no se puede ver historia";
     }
 
     let copy_squares = null;
@@ -1127,7 +1127,7 @@ class Board extends React.Component {
       copy_black_collection =
         this.state.history_black_collection[this.state.history_num];
     } else {
-      return "no more history";
+      return "no mas historia";
     }
 
     copy_squares = clear_possible_highlight(copy_squares).slice();
@@ -1490,8 +1490,8 @@ function initializeBoard() {
 function shuffle(passed_in_array) {
   const array = passed_in_array.slice();
   for (let i = array.length - 1; i > 0; i--) {
-    let j = Math.floor(Math.random() * (i + 1)); 
-    [array[i], array[j]] = [array[j], array[i]]; 
+    let j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
   }
   return array;
 }
@@ -1595,7 +1595,7 @@ function get_piece_value(piece, position) {
       pieceValue =
         350 +
         10 *
-          (piece.ascii === "b" ? bishopEvalWhite[y][x] : bishopEvalBlack[y][x]);
+        (piece.ascii === "b" ? bishopEvalWhite[y][x] : bishopEvalBlack[y][x]);
       break;
     case "q":
       pieceValue = 1000 + 10 * evalQueen[y][x];
