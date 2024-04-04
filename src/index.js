@@ -1051,7 +1051,7 @@ class Board extends React.Component {
                 </p>
                 <p className="small_font">
                   {this.checkmate("w", this.state.squares) === true
-                    ? "You lost by checkmate."
+                    ? "Perdiste por jaque mate."
                     : ""}
                 </p>
                 <p className="small_font">
