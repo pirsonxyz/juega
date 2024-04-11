@@ -203,6 +203,7 @@ a:active {
   box-sizing: border-box;
   background-color: #6b3434;
   color: #fafafa;
+  text-align: center;
   border-radius: 3px;
   box-shadow: 1px 1px 3px #212122;
   position: relative;
@@ -344,7 +345,7 @@ a:active {
   top: calc(50% - 42vmin);
   left: calc(50% - 55vmin);
   width: 10vmin;
-  height: 80vmin;
+  height: 78.69vmin;
 }
 
 .col_label {
@@ -353,7 +354,7 @@ a:active {
   top: calc(50% - 43vmin);
   left: calc(50% - 46vmin);
   width: 80vmin;
-  height: 10vmin;
+  height: 5vmin;
 }
 
 .piece {
