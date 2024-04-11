@@ -106,15 +106,16 @@ html {
 }
 
 a:link {
-  color: #242424;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 a:visited {
-  color: #242424;
+  color: #ddd;
 }
 
 a:hover {
-  color: #00a25f;
+  color: #2494c0;
 }
 
 a:active {
@@ -171,7 +172,7 @@ a:active {
   display: inline-block;
   outline: none !important;
   width: 45%;
-  background-color: #deeaee;
+  background-color: #ffffff;
   padding: 0 15px 5px;
   border-top-right-radius: 0px;
   border-top-left-radius: 3px;
@@ -181,14 +182,14 @@ a:active {
 
 .black_player_color {
   background-color: #242424;
-  color: white;
+  color: rgb(255, 255, 255);
   border-top-right-radius: 3px;
   border-top-left-radius: 0px;
 }
 
 .highlight_box {
   width: 45%;
-  background-color: #00ba6d;
+  background-color: #e9c7c7;
   padding: 0 20px 5px;
   padding-right: 50px;
   padding-bottom: 8px;
@@ -198,15 +199,15 @@ a:active {
 }
 
 .side_box {
-  width: 65%;
+  width: 75%;
   box-sizing: border-box;
-  background-color: #b7b7b7;
-  color: #242424;
+  background-color: #6b3434;
+  color: #fafafa;
   border-radius: 3px;
-  box-shadow: 1px 1px 3px #232621;
+  box-shadow: 1px 1px 3px #212122;
   position: relative;
   top: calc(50% - 41vmin);
-  left: 13%;
+  left: 9%;
   margin: 0 0 30 0;
   padding-bottom: 1px;
 }
@@ -216,7 +217,7 @@ a:active {
 }
 
 .content {
-  padding-left: 20px;
+  padding-left: 30px;
   padding-bottom: 20px;
   padding-top: 5px;
   margin-right: 10px;
@@ -257,11 +258,11 @@ a:active {
 .reset_button {
   position: relative;
   text-align: center;
-  width: 35%;
+  width: 40%;
   cursor: pointer;
   outline: none;
   color: white;
-  background-color: #00ba6d;
+  background-color: #b13943;
   border: none;
   border-radius: 5px;
   font-size: 0.8em;
